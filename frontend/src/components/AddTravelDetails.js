@@ -7,7 +7,7 @@ import axios from "axios";
 import "./Styles/Admin.css";
 
 import Header from "./Header";
-import Api from "./api";
+import Api from "./apicountry";
 
 const layout = {
   labelCol: {
@@ -82,7 +82,7 @@ const AddTravelDetails = () => {
         setLoading(false);
         notification.info({
           message: `Notification`,
-          description: "Send Message 😘",
+          description: "Add Travel Details 😘",
           placement,
         });
         form.resetFields();
@@ -391,10 +391,10 @@ const AddTravelDetails = () => {
                         <Button type="primary" htmlType="submit">
                           {loading ? (
                             <>
-                              <Spin /> Sending...
+                              <Spin /> Submiting...
                             </>
                           ) : (
-                            "Send"
+                            "Submit"
                           )}
                         </Button>{" "}
                       </div>

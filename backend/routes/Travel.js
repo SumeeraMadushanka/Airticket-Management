@@ -38,14 +38,14 @@ router.route("/create").post(async (req, res) => {
     );
 });
 
-//route for fetching payment details
+//route for fetching travel details
 router.route("/").get(async (req, res) => {
   await Travel.find()
     .then((travel) => res.json(travel))
     .catch((error) => res.status(500).json({ success: false, error: error }));
 });
 
-//route for getting relevant payment information using id
+//route for getting relevant travel information using id
 router.route("/get/:id").get(async (req, res) => {
   const { id } = req.params;
   await Travel.findById(id)
@@ -53,7 +53,7 @@ router.route("/get/:id").get(async (req, res) => {
     .catch((error) => res.status(500).json({ success: false, error: error }));
 });
 
-//route for deleting a relavant payment detail using id
+//route for deleting a relavant travel detail using id
 router.route("/delete/:id").delete(async (req, res) => {
   const { id } = req.params;
 
@@ -62,7 +62,7 @@ router.route("/delete/:id").delete(async (req, res) => {
     .catch((error) => res.status(500).json({ success: false, error: error }));
 });
 
-//route for updating a relevant payment detail using id
+//route for updating a relevant travel detail using id
 router.route("/update/:id").put(async (req, res) => {
   //backend route for updating relevant data and passing it back
   const { id } = req.params;
@@ -78,7 +78,7 @@ router.route("/update/:id").put(async (req, res) => {
     mobileNumber,
   } = req.body;
 
-  //find the payment by id and update the relevant payment details
+  //find the payment by id and update the relevant tarvel details
   await Travel.findByIdAndUpdate(id, {
     firstName,
     lastName,

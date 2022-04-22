@@ -16,7 +16,7 @@ import { FileDoneOutlined, InfoCircleOutlined } from "@ant-design/icons";
 import { useParams, NavLink } from "react-router-dom";
 import axios from "axios";
 
-import Api from "./api";
+import Api from "./apicountry";
 
 const layout = {
   labelCol: {
