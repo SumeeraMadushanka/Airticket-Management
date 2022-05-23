@@ -104,7 +104,7 @@ const AddTravelDetails = () => {
       <Header />
       <div className="container mx-auto contact-bg">
         <div className="flex justify-center mt-8 gap-28 mb-10 w-full">
-          <div className=" border-2 text-center border-gray-900 px-56 admin-bg mt-10 mb-10">
+          <div className=" border-2 text-center border-gray-900 px-56 bg-shadow bg-slate-600 mt-10 mb-10">
             <div className="mb-10">
               <div className="mt-20 flex">
                 <div className=" -translate-x-6">

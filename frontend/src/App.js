@@ -6,9 +6,12 @@ import Footer from "./components/Footer";
 import NavBar from "./components/Navbar";
 import AddTravelDetails from "./components/AddTravelDetails";
 import Adminpage from "./components/Adminpage";
-import UpdateTravelDetails from "./components/UpdateTravelDetails"
+import UpdateTravelDetails from "./components/UpdateTravelDetails";
 import TravelDetails from "./components/TravelDetails";
 import BookFlight from "./components/BookFlight";
+import SearchResults from "./components/SearchResults";
+import MyBooking from "./components/MyBooking";
+import ReviewBooking from "./components/ReviewBooking";
 
 const App = () => {
   return (
@@ -22,9 +25,24 @@ const App = () => {
             element={[<NavBar />, <AddTravelDetails />]}
           />
           <Route path="/adminpage" element={<Adminpage />} />
-          <Route path="/traveldetails" element={[<NavBar />,<TravelDetails />]} />
-          <Route path="/update/:id" element={[<NavBar />,<UpdateTravelDetails />]} />
-          <Route path="/bookflight" element={[<NavBar />,<BookFlight />]} />
+          <Route
+            path="/traveldetails"
+            element={[<NavBar />, <TravelDetails />]}
+          />
+          <Route
+            path="/update/:id"
+            element={[<NavBar />, <UpdateTravelDetails />]}
+          />
+          <Route path="/bookflight" element={[<NavBar />, <BookFlight />]} />
+          <Route
+            path="/searchresults"
+            element={[<NavBar />, <SearchResults />]}
+          />
+          <Route path="/mybooking" element={[<NavBar />, <MyBooking />]} />
+          <Route
+            path="/reviewbooking"
+            element={[<NavBar />, <ReviewBooking />]}
+          />
         </Routes>
         <Footer />
       </Router>

@@ -30,3 +30,5 @@ app.listen(PORT, () => {
 
 
 app.use("/travel", require("./backend/routes/travel"));
+app.use("/bookFlight", require("./backend/routes/BookFlight"));
+app.use("/mybooking", require("./backend/routes/MyBooking"));
