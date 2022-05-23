@@ -17,11 +17,17 @@ const Header = () => {
             <Button type="primary" onClick={() => history("/bookflight")}>
               Book a Flight
             </Button>{" "}
+            <Button type="primary" onClick={() => history("/mybooking")}>
+              My Booking
+            </Button>{" "}
             <Button type="primary" onClick={() => history("/addtraveldetails")}>
               Add Travel Details
             </Button>{" "}
             <Button type="primary" onClick={() => history("/traveldetails")}>
               Travel Details
+            </Button>{" "}
+            <Button type="primary" onClick={() => history("/reviewbooking")}>
+              Review Booking
             </Button>
           </div>
         </div>

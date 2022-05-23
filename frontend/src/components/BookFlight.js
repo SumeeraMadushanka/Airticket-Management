@@ -17,6 +17,7 @@ import "./Styles/Admin.css";
 
 import Header from "./Header";
 import Api from "./api";
+import { useNavigate } from "react-router-dom";
 
 const layout = {
   labelCol: {
@@ -63,7 +64,9 @@ const BookFlight = () => {
     setReturning(e);
   };
 
-  const userHandler = async (placement) => {
+  const history = useNavigate();
+
+  const searchHandler = async (placement) => {
     // create handler for saving data to the db
     setLoading(true);
 
@@ -77,7 +80,7 @@ const BookFlight = () => {
     try {
       await axios.post(
         //use axios API
-        "/travel/create",
+        "/bookFlight/create",
         {
           departure,
           arrival,
@@ -97,11 +100,12 @@ const BookFlight = () => {
         setLoading(false);
         notification.info({
           message: `Notification`,
-          description: "Send Message 😘",
+          description: "Search Flights..",
           placement,
         });
         form.resetFields();
       }, 5000); //5seconds timeout
+      history("/searchresults");
     } catch (error) {
       notification.error({
         message: `Notification`,
@@ -117,9 +121,9 @@ const BookFlight = () => {
   return (
     <>
       <Header />
-      <div className="container mx-auto contact-bg">
+      <div className="container mx-auto contact-bg bg-cover">
         <div className="flex justify-center mt-8 gap-28 mb-10 w-full">
-          <div className=" border-2 text-center border-gray-900 px-56 book-bg mt-10 mb-10">
+          <div className=" border-2 text-center border-gray-900 px-56 bg-shadow bg-stone-600 mt-10 mb-10">
             <div className="mb-10">
               <div className="mt-20 flex">
                 <div>
@@ -127,7 +131,7 @@ const BookFlight = () => {
                     {...layout}
                     form={form}
                     name="control-hooks"
-                    onFinish={() => userHandler("top")}
+                    onFinish={() => searchHandler("top")}
                   >
                     <div className=" mb-8 ml-32 font-semibold text-3xl  border-2 p-2 w-96 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-2xl">
                       Round Trip
@@ -144,7 +148,7 @@ const BookFlight = () => {
                       >
                         <Input
                           style={{ width: "700px" }}
-                          placeholder="EDeparture Airport"
+                          placeholder="Departure Airport"
                           prefix={
                             <FileDoneOutlined className="site-form-item-icon" />
                           }
@@ -313,11 +317,8 @@ const BookFlight = () => {
                             onChange={onChangeSelectclass}
                             value={selectClass}
                           >
-                            <Option value="Sri Lankan">Sri Lankan</Option>
-                            <Option value="Indian">Indian</Option>
-                            <Option value="Singaporean">Singaporean</Option>
-                            <Option value="Vietnamese">Vietnamese</Option>
-                            <Option value="Russians">Russians</Option>
+                            <Option value="Sri Lankan">Ecconomic</Option>
+                            <Option value="Indian">Bussiness</Option>
                           </Select>
                         </Form.Item>
                       </div>
